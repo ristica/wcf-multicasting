@@ -3,16 +3,20 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Demo.Client"
         mc:Ignorable="d"
-        Title="Long running process..."
+        Title="WCF Routing"
         Height="300"
         Width="525">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="5" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
 
-        <Grid>
+        <Grid Grid.Row="0">
             <Grid.RowDefinitions>
-                <RowDefinition />
+                <RowDefinition Height="2*" />
                 <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
@@ -20,7 +24,8 @@
             <Button Grid.Row="0"
                     Margin="20"
                     Name="BtnStart"
-                    Content="Start process"
+                    FontSize="16"
+                    Content="Send"
                     Click="BtnDoSomething"></Button>
 
             <Grid Grid.Row="1">
@@ -30,7 +35,7 @@
                 </Grid.ColumnDefinitions>
 
                 <Label Grid.Column="0"
-                       Margin="15"
+                       Margin="5"
                        FontSize="12"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Right"
@@ -38,8 +43,8 @@
                        Content="send this to the service:" />
                 <TextBox Grid.Column="1"
                          Name="TxtInput"
-                         Margin="15"
-                         Padding="10"
+                         Margin="5"
+                         Padding="5"
                          FontSize="14"
                          HorizontalContentAlignment="Left"
                          VerticalAlignment="Center"></TextBox>
@@ -48,13 +53,25 @@
 
             <Label x:Name="lblOutput"
                    Grid.Row="2"
-                   Margin="20"
+                   Margin="5"
                    FontSize="14"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"
                    Foreground="Blue"
                    FontWeight="Bold" />
 
+        </Grid>
+
+        <Border Grid.Row="1"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Background="DarkBlue"></Border>
+
+        <Grid Grid.Row="2">
+            <Button Content="Start broadcasting"
+                    Margin="20"
+                    FontSize="16"
+                    Click="BtnBroadcastClicked"></Button>
         </Grid>
 
     </Grid>

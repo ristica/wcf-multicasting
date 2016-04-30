@@ -12,5 +12,10 @@ namespace Demo.Wcf
             Console.WriteLine("DemoManager.DoSomething() called...");
             return input;
         }
+
+        public void Broadcast()
+        {
+            Console.WriteLine("Broadcast with multicasting...");   
+        }
     }
 }

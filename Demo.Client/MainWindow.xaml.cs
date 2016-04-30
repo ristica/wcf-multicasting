@@ -17,9 +17,19 @@ namespace Demo.Client
                 return;
             }
 
-            var proxy = new Proxies.ProcessClient();
+            var proxy = new Proxies.ProcessClient("DemoProcessRouting");
             this.lblOutput.Content = proxy.DoSomething(this.TxtInput.Text);
             proxy.Close();
+        }
+
+        private void BtnBroadcastClicked(object sender, RoutedEventArgs e)
+        {
+            var proxy = new Proxies.ProcessClient("DemoProcessMulticast");
+            proxy.Broadcast();
+
+            // do not put => proxy.Close() here 
+            // because if a host goes down the client will throw an exception
+            // due to not existing host anymore
         }
     }
 }
